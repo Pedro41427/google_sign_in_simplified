@@ -1,6 +1,7 @@
 name: google_sign_in_simplified
 description: A new Flutter project.
-version: 1.0.0+1
+version: 0.0.1
+homepage: https://github.com/Pedro41427/google_login_lib
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
@@ -14,7 +15,9 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
 flutter:
   uses-material-design: true
-  assets:
-   - assets/google_logo.png
+  
+
+    

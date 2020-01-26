@@ -4,8 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc/bloc_login.dart';
 
 class GoogleSignInButton extends StatelessWidget {
-  const GoogleSignInButton({Key key}) : super(key: key);
+  const GoogleSignInButton({Key key, this.prefixWigdet}) : super(key: key);
 
+  final Widget prefixWigdet;
   @override
   Widget build(BuildContext context) {
     return RaisedButton(
@@ -21,7 +22,7 @@ class GoogleSignInButton extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image(image: AssetImage("assets/google_logo.png"), height: 35.0),
+            prefixWigdet ?? Container(),
             Padding(
               padding: const EdgeInsets.only(left: 10),
               child: Text(

@@ -22,7 +22,12 @@ class BeforeSignIn extends StatelessWidget {
         SizedBox(
           height: 20,
         ),
-        GoogleSignInButton(),
+        GoogleSignInButton(
+          prefixWigdet: Image.asset(
+            'images/google_logo.png',
+            height: 30,
+          ),
+        ),
       ],
     );
   }

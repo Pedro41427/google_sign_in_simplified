@@ -11,18 +11,15 @@ dependencies:
   cupertino_icons: ^0.1.2
   
   google_sign_in_simplified:
+    path: ../
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-
-
-dependency_overrides:
-  google_sign_in_simplified:
-    path: ../
-
+      
 
 
 flutter:
   uses-material-design: true
+  assets:
+    - images/

@@ -35,7 +35,7 @@ class BlocLogin extends Bloc<EventLoginTypes, StateLogin> {
       add(EventLoginTypes.loggedIn);
     });
 
-    state.googleSignIn.signInSilently();
+    //state.googleSignIn.signInSilently();
   }
 
   Future<void> _handleSignIn() async {

@@ -1,7 +1,8 @@
-import 'package:bloc/bloc.dart';
-import 'package:footbal_match_planner/google_loggin_lib/bloc/events_login.dart';
-import 'package:footbal_match_planner/google_loggin_lib/bloc/state_login.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+
+import 'events_login.dart';
+import 'state_login.dart';
 
 class BlocLogin extends Bloc<EventLoginTypes, StateLogin> {
   @override

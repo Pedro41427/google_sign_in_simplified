@@ -1,4 +1,4 @@
-name: google_sign_in_simplified
+name: example
 description: A new Flutter project.
 version: 1.0.0+1
 
@@ -8,13 +8,21 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  google_sign_in: ^4.1.1
-  flutter_bloc: ^3.1.0
+  cupertino_icons: ^0.1.2
+  
+  google_sign_in_simplified:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+
+
+dependency_overrides:
+  google_sign_in_simplified:
+    path: ../
+
+
+
 flutter:
   uses-material-design: true
-  assets:
-   - assets/

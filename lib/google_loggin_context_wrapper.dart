@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:footbal_match_planner/google_loggin_lib/bloc/bloc_login.dart';
-import 'package:footbal_match_planner/google_loggin_lib/bloc/state_login.dart';
+
+import 'bloc/bloc_login.dart';
+import 'bloc/state_login.dart';
 
 class GoogleLoginContextWrapper extends StatelessWidget {
   final BlocLogin bloc;

@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         initialRoute: loginRoute,
         routes: {
           loginRoute: (c) => GoogleLoginHandler(
-                nameOfThisWidgetRoute: loginRoute,
+                namedRouteOfThisWidget: loginRoute,
                 beforeSignIn: BeforeSignIn(),
                 afterSignIn: AfterSignIn(),
               ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_sign_in_simplified/google_sign_in_simplified.dart';
 
 class AfterSignIn extends StatelessWidget {
   const AfterSignIn({

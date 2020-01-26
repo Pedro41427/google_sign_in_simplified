@@ -7,11 +7,11 @@ import 'bloc/state_login.dart';
 class GoogleLoginHandler extends StatelessWidget {
   final Widget afterSignIn;
   final Widget beforeSignIn;
-  final String nameOfThisWidgetRoute;
+  final String namedRouteOfThisWidget;
 
   GoogleLoginHandler({
     Key key,
-    this.nameOfThisWidgetRoute,
+    this.namedRouteOfThisWidget,
     this.afterSignIn,
     this.beforeSignIn,
   }) : super(key: key);
@@ -20,6 +20,7 @@ class GoogleLoginHandler extends StatelessWidget {
   Widget build(BuildContext context) {
     return _PrivateGoogleLoginHandler(
       bloc: BlocProvider.of<BlocLogin>(context),
+      namedRouteOfThisWidget: namedRouteOfThisWidget,
       notYetSignedIn: beforeSignIn,
       signInDone: afterSignIn,
     );
@@ -30,12 +31,12 @@ class _PrivateGoogleLoginHandler extends StatelessWidget {
   final BlocLogin bloc;
   final Widget signInDone;
   final Widget notYetSignedIn;
-  final String routeOfThisWidget;
+  final String namedRouteOfThisWidget;
 
   _PrivateGoogleLoginHandler({
     Key key,
     this.bloc,
-    this.routeOfThisWidget,
+    this.namedRouteOfThisWidget,
     this.signInDone,
     this.notYetSignedIn,
   }) : super(key: key) {
@@ -52,7 +53,7 @@ class _PrivateGoogleLoginHandler extends StatelessWidget {
         else {
           Navigator.popUntil(
             context,
-            ModalRoute.withName(routeOfThisWidget),
+            ModalRoute.withName(namedRouteOfThisWidget),
           );
           return notYetSignedIn;
         }

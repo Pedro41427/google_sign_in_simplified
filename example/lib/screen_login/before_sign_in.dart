@@ -22,10 +22,37 @@ class BeforeSignIn extends StatelessWidget {
         SizedBox(
           height: 20,
         ),
-        GoogleSignInButton(
-          prefixWigdet: Image.asset(
-            'images/google_logo.png',
-            height: 30,
+        GoogleSignInActionProvider(
+          widgetBuilder: (signInAction) => RaisedButton(
+            color: Colors.white,
+            splashColor: Colors.grey,
+            textColor: Colors.black,
+            onPressed: signInAction,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
+            highlightElevation: 10,
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: 10),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Image.asset(
+                    'images/google_logo.png',
+                    height: 30,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Text(
+                      'Sign in with Google',
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
           ),
         ),
       ],

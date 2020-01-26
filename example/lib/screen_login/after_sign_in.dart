@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_sign_in_simplified/google_sign_in_simplified.dart';
 
 class AfterSignIn extends StatelessWidget {
   const AfterSignIn({
@@ -7,10 +8,23 @@ class AfterSignIn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      "After Sign In",
-      style: TextStyle(
-        fontSize: 30,
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              "After Sign In",
+              style: TextStyle(
+                fontSize: 30,
+              ),
+            ),
+            RaisedButton(
+              child: Text('go to screen 2'),
+              onPressed: () => Navigator.pushNamed(context, 'screen2'),
+            ),
+          ],
+        ),
       ),
     );
   }

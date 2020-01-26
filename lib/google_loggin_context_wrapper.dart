@@ -4,30 +4,59 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc/bloc_login.dart';
 import 'bloc/state_login.dart';
 
-class GoogleLoginContextWrapper extends StatelessWidget {
+class GoogleLoginHandler extends StatelessWidget {
+  final Widget afterSignIn;
+  final Widget beforeSignIn;
+  final String nameOfThisWidgetRoute;
+
+  GoogleLoginHandler({
+    Key key,
+    this.nameOfThisWidgetRoute,
+    this.afterSignIn,
+    this.beforeSignIn,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return _PrivateGoogleLoginHandler(
+      bloc: BlocProvider.of<BlocLogin>(context),
+      notYetSignedIn: beforeSignIn,
+      signInDone: afterSignIn,
+    );
+  }
+}
+
+class _PrivateGoogleLoginHandler extends StatelessWidget {
   final BlocLogin bloc;
   final Widget signInDone;
   final Widget notYetSignedIn;
+  final String routeOfThisWidget;
 
-  GoogleLoginContextWrapper({Key key, this.signInDone, this.notYetSignedIn})
-      : bloc = BlocLogin(),
-        super(key: key) {
+  _PrivateGoogleLoginHandler({
+    Key key,
+    this.bloc,
+    this.routeOfThisWidget,
+    this.signInDone,
+    this.notYetSignedIn,
+  }) : super(key: key) {
     bloc.initial();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<BlocLogin>(
-      create: (_) => bloc,
-      child: BlocBuilder<BlocLogin, StateLogin>(
-        bloc: bloc,
-        builder: (_, state) {
-          if (state.currentUser != null)
-            return signInDone;
-          else
-            return notYetSignedIn;
-        },
-      ),
+    return BlocBuilder<BlocLogin, StateLogin>(
+      bloc: bloc,
+      builder: (_, state) {
+        if (state.currentUser != null)
+          return signInDone;
+        else {
+          Navigator.popUntil(
+            context,
+            ModalRoute.withName(routeOfThisWidget),
+          );
+          return notYetSignedIn;
+        }
+      },
     );
   }
 }

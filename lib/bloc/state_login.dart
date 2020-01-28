@@ -6,14 +6,11 @@ class StateLogin {
   GoogleSignIn get googleSignIn => _googleSignIn;
 
   StateLogin._(this._googleSignIn, this.currentUser);
-  factory StateLogin.initial() {
+  factory StateLogin.initial(List<String> scopes) {
     return StateLogin._(
-        GoogleSignIn(
-          scopes: <String>[
-            'email',
-          ],
-        ),
-        null);
+      GoogleSignIn(scopes: scopes),
+      null,
+    );
   }
 
   StateLogin copy() {

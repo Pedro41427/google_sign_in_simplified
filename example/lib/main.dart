@@ -1,27 +1,22 @@
-import 'package:example/screen_login/after_sign_in.dart';
-import 'package:example/screen_login/before_sign_in.dart';
-import 'package:example/screen_login/screen2.dart';
+import 'package:example/screen_login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in_simplified/google_sign_in_simplified.dart';
 
-void main() => runApp(MyApp());
+import 'screen_login/screen2.dart';
 
-final String loginRoute = 'login';
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GoogleSessionWrapper(
+      scopes: LoginScreen.scopes,
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData.dark(),
-        initialRoute: loginRoute,
+        initialRoute: LoginScreen.loginRoute,
         routes: {
-          loginRoute: (c) => GoogleLoginHandler(
-                namedRouteOfThisWidget: loginRoute,
-                beforeSignIn: BeforeSignIn(),
-                afterSignIn: AfterSignIn(),
-              ),
+          LoginScreen.loginRoute: (c) => LoginScreen(),
           'screen2': (c) => Screen2(),
         },
       ),

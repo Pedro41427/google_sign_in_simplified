@@ -5,8 +5,12 @@ import 'package:google_sign_in_simplified/bloc/bloc_login.dart';
 class GoogleSessionWrapper extends StatelessWidget {
   final BlocLogin bloc;
   final Widget child;
-  GoogleSessionWrapper({Key key, this.child})
-      : bloc = BlocLogin(),
+  final List<String> scopes;
+  GoogleSessionWrapper({
+    Key key,
+    this.child,
+    this.scopes,
+  })  : bloc = BlocLogin(scopes: scopes),
         super(key: key);
 
   @override

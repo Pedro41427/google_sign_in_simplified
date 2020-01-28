@@ -5,8 +5,11 @@ import 'events_login.dart';
 import 'state_login.dart';
 
 class BlocLogin extends Bloc<EventLoginTypes, StateLogin> {
+  final List<String> scopes;
+  BlocLogin({this.scopes});
+
   @override
-  StateLogin get initialState => StateLogin.initial();
+  StateLogin get initialState => StateLogin.initial(scopes);
 
   @override
   Stream<StateLogin> mapEventToState(EventLoginTypes event) async* {

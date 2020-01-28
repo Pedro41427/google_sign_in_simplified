@@ -32,7 +32,6 @@ class _PrivateGoogleLoginHandler extends StatelessWidget {
   final Widget signInDone;
   final Widget notYetSignedIn;
   final String namedRouteOfThisWidget;
-
   _PrivateGoogleLoginHandler({
     Key key,
     this.bloc,

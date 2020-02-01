@@ -6,13 +6,20 @@ class Screen2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: GoogleActionProvider.signOutAction(
-          widgetBuilder: (signOutAction) => RaisedButton(
-              onPressed: () {
-                signOutAction();
-                Navigator.pop(context);
-              },
-              child: Text('Sign Out')),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            GoogleInfoProvider.userInfo(
+              widgetBuilder: (info) => Text(info.displayName),
+            ),
+            GoogleActionProvider.signOutAction(
+              widgetBuilder: (signOutAction) => RaisedButton(
+                  onPressed: () {
+                    signOutAction();
+                  },
+                  child: Text('Sign Out')),
+            ),
+          ],
         ),
       ),
     );
